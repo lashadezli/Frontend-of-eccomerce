@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/scrollbar'
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 import classes from "../modules/Products.module.scss";
 import Eye from "../img/view_709612.png";
 import Heart from "../img/heart_1077035.png";
 import StarGray from "../img/icons8-star-50.png";
 import StarYellow from "../img/icons8-star-48.png";
-import Next from '../img/arrow.png'
-import Back from '../img/back.png'
-
+import Next from '../img/arrow.png';
+import Back from '../img/back.png';
 
 function FetchAllItems() {
   const [items, setItems] = useState([]);
@@ -24,7 +23,6 @@ function FetchAllItems() {
           throw new Error("Network response was not ok.");
         }
         const data = await response.json();
-        console.log(data);
         const itemsWithDiscount = data.map((item) => {
           const discountPercentage = calculateDiscountPercentage(
             item.oldPrice,
@@ -36,13 +34,10 @@ function FetchAllItems() {
       } catch (error) {
         console.error("Error fetching items:", error);
       }
-    }
+    };
 
     fetchData();
   }, []);
-
-
-
 
   const calculateDiscountPercentage = (oldPrice, price) => {
     if (oldPrice && price) {
@@ -51,10 +46,6 @@ function FetchAllItems() {
     }
     return "0%";
   };
-
-
-
-
 
   const handleNextClick = () => {
     if (swiperRef.current) {
@@ -68,13 +59,7 @@ function FetchAllItems() {
     }
   };
 
-
   const swiperRef = React.useRef(null);
-
-
-
-
-
 
   function arrayBufferToBase64(buffer) {
     let binary = '';
@@ -85,11 +70,8 @@ function FetchAllItems() {
     }
     return btoa(binary);
   }
-  
-
 
   return (
-    
     <div className={classes["Box"]}>
       <div className={classes["buttons"]}>
         <button onClick={handlePrevClick}><img src={Back} alt="Back" /></button>
@@ -134,6 +116,7 @@ function FetchAllItems() {
                     <p>({item.rating})</p>
                   </div>
                 </div>
+                <button className={classes["addToCart"]}>Add to Cart</button>
               </div>
             </SwiperSlide>
           ))}
