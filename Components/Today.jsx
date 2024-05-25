@@ -1,12 +1,11 @@
 import classes from '../modules/Todays.module.scss'
-const Header = () => {
+const Today = () => {
   return (
     <div className={classes['header']}>   
       <p></p>
-      <h1>Today's</h1>
-   
+      <h1> Today </h1>
     </div>
   );
 };
 
-export default Header;
+export default Today;

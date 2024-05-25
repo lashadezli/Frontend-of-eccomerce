@@ -1,20 +1,18 @@
-import React from 'react';
-import FetchAllItems from '../Components/Products'; 
-import CountdownTimer from '../Components/Timer';
-import Todays from '../Components/Todays';
-import ViewAll from '../Components/Viewallproducts';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from '../pages/Home';
 
 
 function App() {
+
   return (
     <>
-      <Todays/>
-      <CountdownTimer/>
-      <FetchAllItems /> 
-      <ViewAll/>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+        </Routes>
+      </Router>
     </>
   );
 }
-
 
 export default App;
