@@ -5,12 +5,13 @@
     margin-bottom: 100px;
     display: flex;
     justify-content: center;
-    button {
+    a {
         padding: 20px 40px;
         font-size: 20px;
         border: none;
         border-radius: 7px;
         background-color: red;
         color: white;
+        text-decoration: none;
     }
 }
